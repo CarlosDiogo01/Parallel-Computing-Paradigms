@@ -1,0 +1,23 @@
+---------------------------------------
+------------- GitHub -------------
+---------------------------------------
+Before start working...
+$ git pull
+
+
+Pushing to repo...
+$ git add -v --all
+$ git commit -m "Commit message"
+$ git push
+
+
+If any problem occurs
+$ git reset --hard
+
+----------------------------------------------------
+
+Compilation:
+mpicc $FILE.c$ -o $EXECUTE_FILE$
+
+Execute:
+mpirun -np $N_PROCESSES$ $EXECUTE_FILE$
