@@ -1,0 +1,10 @@
+MATVEC computes a matrix-vector product c = A * b.
+Giving each process a copy of the vector b, and using self-scheduling to let any process have the next row of A to work on when it is ready. 
+Arrays are allocated dynamically. 
+The "math.h" include file is needed, as is the run-time math library.
+
+matvec_mpi.c, the source code;
+matvec.sh, a script to compile and run the program using MPIRUN.
+matvec_output.txt, the output file;
+matvec_fsu.sh, a script to compile and run the program on the FSU HPC cluster.
+matvec_fsu_output.txt, the output file;

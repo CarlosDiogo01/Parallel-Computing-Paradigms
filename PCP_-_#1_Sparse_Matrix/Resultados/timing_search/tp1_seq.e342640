@@ -1,0 +1,8 @@
+src/tp1_seq.c: In function 'main':
+src/tp1_seq.c:68:14: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main(int argc, char *argv[]) {  
+              ^
+src/tp1_paralel.c: In function 'main':
+src/tp1_paralel.c:67:14: warning: unused parameter 'argc' [-Wunused-parameter]
+ int main(int argc, char *argv[]) {
+              ^

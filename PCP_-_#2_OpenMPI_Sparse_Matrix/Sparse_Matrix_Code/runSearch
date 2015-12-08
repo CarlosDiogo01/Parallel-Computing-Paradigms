@@ -1,0 +1,56 @@
+## FICHEIRO MODELO PBS CRIADO PARA A DISCIPLINA DE CPD::PCP
+# FONTE: http://qcd.phys.cmu.edu/QCDcluster/pbs/run_serial.html
+## GRUPO : Carlos Sá Ana Sousa 
+## OUT/2015
+
+#!/bin/sh
+
+#PBS -N tp1_seq
+#PBS -l walltime=01:30:00
+#PBS -q mei
+
+
+#PBS -m abe
+#PBS -M carlos.sa01@gmail.com
+
+#PBS -l nodes=1:ppn=24
+
+module purge
+module load gnu/4.9.0
+   
+echo "Done Loading Modules..."
+
+cd PCP
+make clean
+make
+
+read -r node_info<$PBS_NODEFILE
+
+echo "Allocated computing node: $node_info"
+
+max_ppn=24
+sample_size=10
+max_matrix=8192
+
+for (( matrix_size=2048, vec_size = matrix_size; matrix_size <= $max_matrix; matrix_size+=matrix_size, vec_size+=vec_size ))
+do 
+echo "Matrix Size: $matrix_size"
+echo "Vector Size: $vec_size"
+echo "Running $sample_size * sequential code"
+for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
+do
+	echo "Executing in $node_info "
+	./bin/tp1_seq $matrix_size $matrix_size $vec_size 
+done
+
+for (( num_threads=2, vec_size=matrix_size; num_threads <= $max_ppn; num_threads+=2 ))
+do
+	echo "Running $sample_size * ( $num_threads threads parallel code)"
+	for (( sample_num=1, vec_size=matrix_size; sample_num <= $sample_size; ++sample_num ))
+	do 
+		echo "Executing in $node_info"
+		./bin/tp1_paralel $matrix_size $matrix_size $vec_size $num_threads
+done
+done
+done
+echo "Done..."

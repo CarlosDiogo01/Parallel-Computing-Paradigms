@@ -1,0 +1,13 @@
+- Análise teórica do algoritmo
+- Oportunidades de paralelismo
+- Balanceamento
+- Custos de comunicação
+
+- 10 Slides
+- explicar o algoritmo
+- Versões código implementadas
+- Comentar resultados
+
+5 Janeiro apresentações
+
+apresentações escalonamento por número de grupo. (Grupo 1 -> 14h, Grupo 2 -> 14h:15....)
