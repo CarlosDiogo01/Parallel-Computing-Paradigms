@@ -4,8 +4,6 @@
 #include <omp.h>
 #include "mpi.h"
 
-#define MASTER 0
-
 double** geraMatriz (int nLinhas, int nCols, int nnz) {
 	int i, j, x, y, aux, cont;
 	double **mat = (double **) calloc (nLinhas, sizeof(double*));
@@ -85,77 +83,82 @@ int main(int argc, char *argv[]) {
 	int nrProc;		/* Numero de processos correntes */
 	int acabou; 		/* Para terminar a execucao do processo */
 	double msg; 		/* Para a comunicação entre o MASTER e os outros processos */
-	double linha[nCols];
-
+	double *linha;
+	int MASTER = 0;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &idProc);
 	MPI_Comm_size(MPI_COMM_WORLD, &totalProcs);
 
+	nLinhas = 50;	//atoi(argv[1]);
+	nCols = 50; 	//atoi(argv[2]);
+	acabou = nLinhas + 1;
+
 	if (idProc == MASTER){
 		/* Preenchimento Matriz */
-		nLinhas = 50;	//atoi(argv[1]);
-		nCols = 50; 	//atoi(argv[2]);
 		nnz = (nLinhas * nCols) * 0.25;
 		coo = geraMatriz(nLinhas, nCols, nnz);
-		
+
 		/* Preenchimento Vector */
 		nLinhas_vect = 50;	//atoi(argv[3]);
 		vect = geraVetor(nLinhas_vect);
 
 		result = (double*) calloc (nLinhas, sizeof(double));
+
+	} else {
+		vect = (double**) calloc (1, sizeof(double*));
+		vect[0] = (double*) calloc (nLinhas_vect, sizeof(double));
+		linha = (double*) calloc (150, sizeof(double));
 	}
 
 	/* Enviar o vetor aos outros processos */
 	MPI_Bcast (vect, nCols, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
-	
 	
 	if (idProc == MASTER){
 		nrLinha = 0;
 		for (i=1; i<= totalProcs-1; i++){
 			procDest = i;
 			tag = nrLinha;
-			MPI_Send (coo[nrLinha], nCols, MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
-			printf("Fez Send!\n");
+			MPI_Send (coo[nrLinha], (int)coo[nrLinha][0], MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+			//printf("Pai enviou %i\n", (int)coo[nrLinha][0]);
 			nrLinha++;
 		}
 		nrProc = totalProcs-1;
 		while(1){
-			MPI_Recv(&msg, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
-			printf("Fez receive do pai!\n");
+			MPI_Recv(&msg, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
+			//printf("Fez receive do pai!\n");
 			result[tag] = msg;
 			tag = status.MPI_TAG;
 			if ( nrLinha < nLinhas){
 				nrLinha++;
 				tag = nrLinha;
 				procDest = status.MPI_SOURCE;
-				MPI_Send(coo[nrLinha], nCols, MPI_DOUBLE, procDest, 0, MPI_COMM_WORLD);	//ana nao tem a certeza
-				printf("Fez Send do PAI\n");
+				MPI_Send(coo[nrLinha], (int)coo[nrLinha][0], MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);	
+				//printf("Fez Send do PAI\n");
 			}
 			else{
 				nrProc--;
 				tag = acabou;
 				procDest = status.MPI_SOURCE;
 				linha[0] = -1;
-				MPI_Send(&linha,1, MPI_DOUBLE, procDest, 0, MPI_COMM_WORLD);
-				printf("Fez Send ACABOU!\n");
+				MPI_Send(&linha,1, MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+				//printf("Fez Send ACABOU!\n");
 				if (nrProc == 0) break;
 			}
 		}
 	}
 	//Caso nao seja o MASTER
 	else{
-		printf("Entrou no filho!\n");
-		MPI_Recv(&linha, nCols, MPI_DOUBLE, MASTER, 0, MPI_COMM_WORLD, &status);
-		printf("NAO ESTOUROU!\n");
+		//printf("FILHO\n");
+		MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
 		tag = status.MPI_TAG;
 		while(tag != acabou){
 			res = 0.0;
-			for(i=1; i<linha[0]; i+=2){
+			for(i=1; i<=(int)linha[0]; i+=2){
 				res += linha[i+1] * vect[0][(int)linha[i]];
 			}
-			MPI_Send(&res, 1, MPI_DOUBLE, MASTER, 0, MPI_COMM_WORLD);
-			MPI_Recv(&linha, nCols, MPI_DOUBLE, MASTER, 0, MPI_COMM_WORLD, &status);
+			MPI_Send(&res, 1, MPI_DOUBLE, MASTER, tag, MPI_COMM_WORLD);
+			MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
 			tag = status.MPI_TAG;
 		}
 

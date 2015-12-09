@@ -50,165 +50,167 @@ double** geraMatriz (int nLinhas, int nCols, int nnz) {
 		free(mat[i]);
 	}
 	free(mat);
-
+	
 	return coo;
 }
 
-double** geraVetor (int nCols) {
+double* geraVetor (int nCols) {
 	int i;
-	double **vect = (double**) calloc (1, sizeof(double*));
-	vect[0] = (double*) calloc (nCols, sizeof(double));
+	double *vect;
+
+	vect = (double*) calloc (nCols, sizeof(double));
 	srand(1);
 	for(i=0; i<nCols; i++) {
-		vect[0][i] = (rand() % 20) * 0.25;
+		vect[i] = (rand() % 20) * 0.25;
 	}
-
+	
 	return vect;
 }
 
 int main(int argc, char *argv[]) {		
-	unsigned int i, j, n, nnz, nLinhas, nCols, nLinhas_vect;
-	double startTime, finalTime;
-	double **coo, **vect, *result;
-	double soma;
+	int nLinhas, nCols, nLinhasVect, i, j, incr;
+	double startTime, finalTime, n;
+	double **coo, *vect, *result, *linha;
+	int MASTER = 0;
 
 	/* MPI */
 	MPI_Status status;	
 	int idProc;		/* ID de cada processo */
 	int tag;
-	double res;		/* Resultado de fazer a multiplicacao de uma linha pela coluna do vector */
 	int totalProcs;		/* Numero total de processos */
 	int nrLinha;		/* Numero de linha a ser processada */
 	int procDest;		/* Processo que vai tratar a linha corrente */
-	int nrProc;		/* Numero de processos correntes */
 	int acabou; 		/* Para terminar a execucao do processo */
 	double msg; 		/* Para a comunicação entre o MASTER e os outros processos */
-	double *linha;
-	int MASTER = 0;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &idProc);
 	MPI_Comm_size(MPI_COMM_WORLD, &totalProcs);
 
-	nLinhas = 50;	//atoi(argv[1]);
-	nCols = 50; 	//atoi(argv[2]);
+	nLinhas = 5;	//atoi(argv[1]);
+	nCols = 5; 	//atoi(argv[2]);
+	nLinhasVect = 5;	//atoi(argv[3]);
 	acabou = nLinhas + 1;
+	incr = (int)(nLinhas/(totalProcs-1));
 
+	printf("Incremento %d\n", incr);
 	if (idProc == MASTER){
 		/* Preenchimento Matriz */
-		nnz = (nLinhas * nCols) * 0.25;
+		unsigned int nnz = (nLinhas * nCols) * 0.25;
 		coo = geraMatriz(nLinhas, nCols, nnz);
 
 		/* Preenchimento Vector */
-		nLinhas_vect = 50;	//atoi(argv[3]);
-		vect = geraVetor(nLinhas_vect);
+		vect = geraVetor(nLinhasVect);
 
 		result = (double*) calloc (nLinhas, sizeof(double));
+		linha = (double*) calloc (150, sizeof(double));
+
+		/*
+		printf("---------Matriz formato COO---------\n");
+		for(i=0; i<nLinhas; i++){
+			if (coo[i]) {
+				n = coo[i][0];
+				for(j=1; j<=n; j+=2) {
+					printf("%f %f %f\n", (double)i, (double)coo[i][j], (double)coo[i][j+1]);
+				}
+			}
+		}
+		
+		printf("\n---------Vetor---------\n");
+		for(i=0; i<nLinhasVect; i++) {
+			printf("---%f ", vect[i]);
+		}
+		printf("\n");*/
 
 	} else {
-		vect = (double**) calloc (1, sizeof(double*));
-		vect[0] = (double*) calloc (nLinhas_vect, sizeof(double));
+		vect = (double*) calloc (nLinhasVect, sizeof(double));
 		linha = (double*) calloc (150, sizeof(double));
 	}
 
 	/* Enviar o vetor aos outros processos */
-	MPI_Bcast (vect, nCols, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
+	MPI_Bcast (vect, nLinhasVect, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
 	
 	if (idProc == MASTER){
+		procDest = 1;
+		for (i=0; (i<nLinhas) && (procDest<totalProcs); i+= incr){
+			n = i+incr;
+			for (j=i; j<n && j<nLinhas; j++) {
+				tag = j;
+				MPI_Send(coo[j], (int)(coo[j][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+			}
+			procDest++;
+		}
+		
+		procDest--;
+		while(i < nLinhas){
+			tag = i;
+			MPI_Send(coo[i], (int)(coo[i][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+			i++;
+		}
+
+		for(i=1; i<totalProcs; i++) {
+			tag = acabou;
+			linha[0] = -1;
+			MPI_Send(&linha,1, MPI_DOUBLE, i, tag, MPI_COMM_WORLD);
+		}
+
 		nrLinha = 0;
-		for (i=1; i<= totalProcs-1; i++){
-			procDest = i;
-			tag = nrLinha;
-			MPI_Send (coo[nrLinha], (int)coo[nrLinha][0], MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
-			//printf("Pai enviou %i\n", (int)coo[nrLinha][0]);
-			nrLinha++;
-		}
-		nrProc = totalProcs-1;
 		while(1){
-			MPI_Recv(&msg, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
-			//printf("Fez receive do pai!\n");
+			MPI_Recv(&msg, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+			tag = status.MPI_TAG;
 			result[tag] = msg;
-			tag = status.MPI_TAG;
-			if ( nrLinha < nLinhas){
-				nrLinha++;
-				tag = nrLinha;
-				procDest = status.MPI_SOURCE;
-				MPI_Send(coo[nrLinha], (int)coo[nrLinha][0], MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);	
-				//printf("Fez Send do PAI\n");
-			}
-			else{
-				nrProc--;
-				tag = acabou;
-				procDest = status.MPI_SOURCE;
-				linha[0] = -1;
-				MPI_Send(&linha,1, MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
-				//printf("Fez Send ACABOU!\n");
-				if (nrProc == 0) break;
-			}
+			printf("Linha %d resultado %f\n", tag, msg);
+			nrLinha++;
+			if ( nrLinha == nLinhas){ break; }
 		}
-	}
-	//Caso nao seja o MASTER
-	else{
-		//printf("FILHO\n");
-		MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
-		tag = status.MPI_TAG;
-		while(tag != acabou){
-			res = 0.0;
-			for(i=1; i<=(int)linha[0]; i+=2){
-				res += linha[i+1] * vect[0][(int)linha[i]];
-			}
-			MPI_Send(&res, 1, MPI_DOUBLE, MASTER, tag, MPI_COMM_WORLD);
-			MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_SOURCE, MPI_COMM_WORLD, &status);
-			tag = status.MPI_TAG;
-		}
-
-	}
-
-	/* Multiplicacao */
-	//startTime = omp_get_wtime();
-	/*for(i=0; i<nLinhas; i++) {
-		n = (int)coo[i][0];
-		soma=0;
-		for(j=1; j<=n; j+=2){
-			soma += coo[i][j+1]*vect[0][(int)coo[i][j]];
-		}
-		result[i] = soma;
-	}*/
-	//finalTime = omp_get_wtime();
-
-	/* Visualizacao dos resultados */
-/*	printf("---------Matriz formato COO---------\n");
-	for(i=0; i<nLinhas; i++){
-		if (coo[i]) {
-			n = coo[i][0];
-			for(j=1; j<=n; j+=2) {
-				printf("%f %f %f\n", (double)i, (double)coo[i][j], (double)coo[i][j+1]);
-			}
-		}
-	}
-	
-	printf("\n---------Vetor---------\n");
-	for(i=0; i<nLinhas_vect; i++) {
-		printf("%f\n", vect[0][i]);
-	}
-	
-	printf("-----------Resultado Multiplicacao---------\n");
-	for(i=0; i<nLinhas; i++)
-		printf("%f\n", result[i]);
-*/
-	
-	if (idProc == MASTER){
-		printf("Time seq: %.12f\n",(finalTime - startTime)*1000);
 
 		/* Libertar a memoria alocada */
 		for(i=0; i<nLinhas; i++) {
 			free(coo[i]);
 		}
 		free(coo);
+		free(linha);
 		free(vect);
-		free(result);
-		MPI_Finalize();
-		return 0;
 	}
+
+	//Caso nao seja o MASTER
+	else{
+		double res;
+		MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		tag = status.MPI_TAG;
+		while(tag != acabou){
+			res = 0.0;
+			n = (int)linha[0];
+
+			for(i=1; i<=n; i+=2){
+				printf("(%f * %f) + ", linha[i+1], vect[(int)linha[i]]);
+				res += linha[i+1] * vect[(int)linha[i]];
+			}
+			printf(" = %f\n", res);
+			MPI_Send(&res, 1, MPI_DOUBLE, MASTER, tag, MPI_COMM_WORLD);
+			MPI_Recv(linha, 150, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+			tag = status.MPI_TAG;
+		}
+		
+		free(linha);
+		free(vect);
+	}
+	
+	if (idProc == MASTER){
+		//printf("Time seq: %.12f\n",(finalTime - startTime)*1000);
+		//printf("PAI acabou\n");
+		
+		/* Visualizacao dos resultados */
+		printf("-----------Resultado Multiplicacao---------\n");
+		for(i=0; i<nLinhas; i++)
+			printf("---%f ", result[i]);
+		
+		printf("\n");
+
+		free(result);
+	}
+
+	MPI_Finalize();
+	return 0;
 }
 
