@@ -1,21 +1,17 @@
 ################################################################################
 # Makefile for PCP 
 #
-# by (CPD-Minho)
+# by Carlos Sá e Ana Sousa 
 ################################################################################
 
 SHELL = /bin/sh
 
-CXX = gcc
-LD  = gcc
+CXX = mpicc
+LD  = mpicc
 
-SEQ = tp1_seq
-PAR = tp1_paralel
+MPI = tp2_mpi
 BIN = bin
-BIN_SEQ = tp1_seq
-BIN_PAR = tp1_paralel
-
-CXXFLAGS   = -O3 -Wall -Wextra -std=c99 -fopenmp
+BIN_MPI = tp2_mpi
 
 SRC_DIR = src
 BIN_DIR = bin
@@ -35,24 +31,20 @@ vpath %.c $(SRC_DIR)
 
 
 $(BUILD_DIR)/%.d: %.c
-	$(CXX) -M $(CXXFLAGS) $(INCLUDES) $< -o $@
+	$(CXX) -M  $(INCLUDES) $< -o $@
 
 $(BUILD_DIR)/%.o: %.c
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+	$(CXX) -c  $(INCLUDES) $< -o $@
 
-$(BIN_DIR)/$(BIN_SEQ): $(BUILD_DIR)/$(SEQ).o $(BUILD_DIR)/$(SEQ).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(SEQ).o 
-
-$(BIN_DIR)/$(BIN_PAR): $(BUILD_DIR)/$(PAR).o $(BUILD_DIR)/$(PAR).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR).o 
+$(BIN_DIR)/$(BIN_MPI): $(BUILD_DIR)/$(MPI).o $(BUILD_DIR)/$(MPI).d 
+	$(CXX) -o $@ $(BUILD_DIR)/$(MPI).o 
 
 checkdirs:
 	@mkdir -p build 
 	@mkdir -p src
-	@mkdir -p timing
 	@mkdir -p bin
 
-all: checkdirs  $(BIN_DIR)/$(BIN_SEQ) $(BIN_DIR)/$(BIN_PAR)
+all: checkdirs  $(BIN_DIR)/$(BIN_MPI) 
 
 clean:
 	rm -f $(BUILD_DIR)/* $(BIN_DIR)/*
