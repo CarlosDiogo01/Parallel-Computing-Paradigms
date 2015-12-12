@@ -126,12 +126,12 @@ int main(int argc, char *argv[]) {
 		//linha = (double*) calloc (maxElem, sizeof(double));
 	}
 
+	startTime = MPI_Wtime();
 	/* Enviar o vetor aos outros processos */
 	MPI_Bcast (vect, nLinhasVect, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
 	
 	if (idProc == MASTER){
 		procDest = 1;
-		startTime = MPI_Wtime();
 		for (i=0; (i<nLinhas) && (procDest<totalProcs); i+= incr){
 			n = i+incr;
 			for (j=i; j<n && j<nLinhas; j++) {
@@ -157,6 +157,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		nrLinha = 0;
+		
 		while(1){
 			MPI_Recv(&msg, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 			tag = status.MPI_TAG;
