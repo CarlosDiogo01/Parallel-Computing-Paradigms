@@ -1,0 +1,33 @@
+## FICHEIRO MODELO PBS CRIADO PARA A DISCIPLINA DE CPD::PCP
+# FONTE: http://qcd.phys.cmu.edu/QCDcluster/pbs/run_serial.html
+## GRUPO : Carlos Sá Ana Sousa 
+## OUT/2015
+
+#!/bin/sh
+
+#PBS -l walltime=00:05:00
+#PBS -q mei
+
+
+#PBS -m abe
+#PBS -M carlos.sa01@gmail.com
+
+#PBS -l nodes=1:ppn=2:r641
+
+echo "Allocated computing node: $node_info"
+read -r node_info<$PBS_NODEFILE
+
+module purge
+module load papi/5.4.1 
+echo "Done Loading PAPI..."
+
+echo "...................."
+
+echo "Getting Hardware Info of $node_info"
+cd PCP/TP2_MPI_SpMV
+rm -rf MachineInfo
+mkdir MachineInfo
+papi_mem_info >> MachineInfo/mem_hierarchy.txt
+cat /proc/cpuinfo >> MachineInfo/CPU_info.txt
+cat /proc/meminfo >> MachineInfo/MEM_info.txt
+echo "Done..."
