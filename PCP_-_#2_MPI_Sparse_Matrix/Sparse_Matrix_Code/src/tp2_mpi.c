@@ -67,6 +67,13 @@ double* geraVetor (int nCols) {
 	return vect;
 }
 
+void clearCache(){
+	int i;
+  	double clearcache [30000000];
+  	for (i = 0; i < 30000000; ++i)
+    	clearcache[i] = i;
+}
+
 int main(int argc, char *argv[]) {		
 	int nLinhas, nCols, nLinhasVect, i, j, incr, maxElem;
 	double startTime, endTime, tcomp, tcomm, n;
@@ -111,6 +118,7 @@ int main(int argc, char *argv[]) {
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if (idProc == MASTER){
+		clearCache();
 		startTime = MPI_Wtime();
 		procDest = 1;
 		for (i=0; (i<nLinhas) && (procDest<totalProcs); i+= incr){
@@ -138,7 +146,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		endTime = MPI_Wtime();
-		printf("---->Tempo envio de msgs no MASTER (total): %.12f ms\n", (endTime - startTime)*1000);
+		//printf("---->Tempo envio de msgs no MASTER (total): %.12f ms\n", (endTime - startTime)*1000);
 	}
 
 	//Caso nao seja o MASTER
@@ -197,11 +205,11 @@ int main(int argc, char *argv[]) {
 		for(i=0; i<nLinhas; i++)
 			printf("---%f ", result_global[i]);
 		printf("\n\n");
-		*/
+		
 		
 		printf("---->Tempo de computação (soma processos): %.12f ms\n",tcomp_global*1000);
 		printf("---->Tempo de receção mensagens (soma processos): %.12f ms\n",tcomm_global*1000);
-
+		*/
 		/* Libertar a memoria alocada */
 		for(i=0; i<nLinhas; i++) {
 			free(coo[i]);
