@@ -69,14 +69,14 @@ double* geraVetor (int nCols) {
 
 void clearCache(){
 	int i;
-  	double clearcache [30000000];
-  	for (i = 0; i < 30000000; ++i)
+  	double clearcache [30000];
+  	for (i = 0; i < 30000; ++i)
     	clearcache[i] = i;
 }
 
 int main(int argc, char *argv[]) {		
 	int nLinhas, nCols, nLinhasVect, i, j, incr, maxElem;
-	double startTime, endTime, tcomp, tcomm, n;
+	double startTime, endTime, tcomp, trecv, tsend, n;
 	double **coo, *vect, *result, *linha, res;
 	int MASTER = 0;
 
@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
 	acabou = nLinhas + 1;
 	incr = (int)(nLinhas/(totalProcs-1));
 	maxElem = (nCols*2) + 1;
-	tcomp = 0; tcomm = 0;
+	tcomp = 0; trecv = 0; tsend = 0;
 
 	linha = (double*) calloc (maxElem, sizeof(double));
 	result = (double*) calloc (nLinhas, sizeof(double));
@@ -146,7 +146,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		endTime = MPI_Wtime();
-		//printf("---->Tempo envio de msgs no MASTER (total): %.12f ms\n", (endTime - startTime)*1000);
+		tsend = endTime - startTime;
 	}
 
 	//Caso nao seja o MASTER
@@ -154,7 +154,7 @@ int main(int argc, char *argv[]) {
 		startTime = MPI_Wtime();
 		MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 		endTime = MPI_Wtime();
-		tcomm += endTime - startTime;
+		trecv += endTime - startTime;
 
 		tag = status.MPI_TAG;
 		while(tag != acabou){
@@ -171,16 +171,16 @@ int main(int argc, char *argv[]) {
 			startTime = MPI_Wtime();
 			MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 			endTime = MPI_Wtime();
-			tcomm += endTime - startTime;
+			trecv += endTime - startTime;
 			tag = status.MPI_TAG;
 		}
 	}
 	
 	MPI_Barrier(MPI_COMM_WORLD);
-	double result_global[nLinhas], tcomp_global, tcomm_global;
+	double result_global[nLinhas], tcomp_global, trecv_global;
 	MPI_Reduce(result, result_global, nLinhas, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 	MPI_Reduce(&tcomp, &tcomp_global, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-	MPI_Reduce(&tcomm, &tcomm_global, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+	MPI_Reduce(&trecv, &trecv_global, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if(idProc == MASTER) {
@@ -205,11 +205,14 @@ int main(int argc, char *argv[]) {
 		for(i=0; i<nLinhas; i++)
 			printf("---%f ", result_global[i]);
 		printf("\n\n");
-		
-		
-		printf("---->Tempo de computação (soma processos): %.12f ms\n",tcomp_global*1000);
-		printf("---->Tempo de receção mensagens (soma processos): %.12f ms\n",tcomm_global*1000);
 		*/
+		
+		//printf("---->Tempo envio de msgs no MASTER (total): %.12f ms\n", tsend*1000);
+		//printf("---->Tempo de computação (soma processos): %.12f ms\n",tcomp_global*1000);
+		//printf("---->Tempo de receção mensagens (soma processos): %.12f ms\n",trecv_global*1000);
+		
+		printf("%.12f, %.12f, %.12f\n", tsend*1000,tcomp_global*1000, trecv_global*1000);
+
 		/* Libertar a memoria alocada */
 		for(i=0; i<nLinhas; i++) {
 			free(coo[i]);
