@@ -28,13 +28,12 @@ echo "Allocated computing node: $node_info"
 max_ppn=32
 sample_size=8
 max_matrix=4096
-vec_size=1024
 
-for (( matrix_size=1024;matrix_size <= $max_matrix; matrix_size+=matrix_size, vec_size+=vec_size ))
+for (( matrix_size=1024, vec_size=1024; matrix_size <= $max_matrix; matrix_size+=matrix_size, vec_size+=vec_size ))
 	do
 		echo "Running for COO Matrix Size: $matrix_size x $matrix_size"
 		echo "Running for Vector Size : $vec_size"
-		for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
+		for (( ppn=2; ppn <= max_ppn; ppn+=2 )) 
 		do
 			echo "Running $sample_size * ppn: $ppn nodes"
 			for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
