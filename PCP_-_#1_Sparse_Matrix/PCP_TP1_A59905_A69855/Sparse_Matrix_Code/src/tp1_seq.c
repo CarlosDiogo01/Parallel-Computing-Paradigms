@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
 	for(i=0; i<nLinhas; i++)
 		printf("%f\n", result[i]);
 */
-	printf("Time seq: %.12f\n",(finalTime - startTime)*1000);
+	printf("Time seq: %.12f ms\n",(finalTime - startTime)*1000);
 
 	/* Libertar a memoria alocada */
 	for(i=0; i<nLinhas; i++) {

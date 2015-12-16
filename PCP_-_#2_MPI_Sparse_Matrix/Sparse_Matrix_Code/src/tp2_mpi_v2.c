@@ -67,7 +67,7 @@ double* geraVetor (int nCols) {
 	return vect;
 }
 
-void forceLoadram(){
+void forceLoadRam(){
 	int i;
   	double forceloadram [30000];
   	for (i = 0; i < 30000; ++i)
@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
 	nCols = atoi(argv[2]);
 	nLinhasVect = atoi(argv[3]);
 	acabou = nLinhas + 1;
-	incr = (int)(nLinhas/(totalProcs-1));
+	incr = (int)(nLinhas/totalProcs);
 	maxElem = (nCols*2) + 1;
 	tcomp = 0; tsend = 0; trecv = 0; 
 	wallTime = 0; startTime = endTime = 0;
@@ -113,77 +113,76 @@ int main(int argc, char *argv[]) {
 	}
 
 	/* Enviar o vetor gerado no MASTER aos outros processos */
+	startAux = MPI_Wtime();
 	MPI_Bcast(vect, nLinhasVect, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
+	endAux = MPI_Wtime();
+	tsend = endAux - startAux;
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if (idProc == MASTER){
-		forceLoadram();
+		forceLoadRam();
 		startTime = MPI_Wtime();
+		startAux = MPI_Wtime();
 		procDest = 1;
 		for (i=0; (i<nLinhas) && (procDest<totalProcs); i+= incr){
 			n = i+incr;
-			for (j=i; j<n && j<nLinhas; j++) {
+			for (j=i; j<n; j++) {
 				tag = j;
 				MPI_Send(coo[j], (int)(coo[j][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
 			}
 			procDest++;
 		}
-		
-		procDest--;
+		endAux = MPI_Wtime();
+		tsend += (endAux - startAux);
+
 		/* Caso nao sejam enviadas todas as linhas no ciclo anterior */
+		startAux = MPI_Wtime();
 		while(i < nLinhas){
-			tag = i;
-			MPI_Send(coo[i], (int)(coo[i][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+			res = 0.0;
+			n = (int)coo[i][0];
+			for(j=1; j<n; j+=2){
+				res += coo[i][j+1] * vect[(int)coo[i][j]];
+			}
+			result[i] = res;
 			i++;
 		}
-
-		/* Enviar msg para os processos terminarem */
-		for(i=1; i<totalProcs; i++) {
-			tag = acabou;
-			linha[0] = -1;
-			MPI_Send(&linha,1, MPI_DOUBLE, i, tag, MPI_COMM_WORLD);
-		}
+		endAux = MPI_Wtime();
+		tcomp = endAux - startAux;
 
 		endTime = MPI_Wtime();
 		wallTime = endTime - startTime;
-		tsend = wallTime;
+		
 		//printf("Wall time proc %d: %.12f\n", idProc, wallTime*100);
 	}
 
 	//Caso nao seja o MASTER
 	else{
-		startTime = startAux = MPI_Wtime();
-		MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-		endAux = MPI_Wtime();
-		trecv += endAux - startAux;
-
-		tag = status.MPI_TAG;
-		while(tag != acabou){
+		startTime = MPI_Wtime();
+		for(i=0; i<incr; i++){
+			startAux = MPI_Wtime();
+			MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+			tag = status.MPI_TAG;
+			endAux = MPI_Wtime();
+			trecv += (endAux - startAux);
+			
 			startAux = MPI_Wtime();
 			res = 0.0;
 			n = (int)linha[0];
-			for(i=1; i<=n; i+=2){
-				res += linha[i+1] * vect[(int)linha[i]];
+			for(j=1; j<=n; j+=2){
+				res += linha[j+1] * vect[(int)linha[j]];
 			}
 			result[tag] = res;
 			endAux = MPI_Wtime();
-			tcomp += endAux - startAux;
-
-			startAux = MPI_Wtime();
-			MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-			endAux = MPI_Wtime();
-			trecv += endAux - startAux;
-			tag = status.MPI_TAG;
+			tcomp += (endAux - startAux);
 		}
 		endTime = MPI_Wtime();
 		wallTime = endTime - startTime;
-		//printf("Wall time proc %d: %.12f\n", idProc, wallTime*1000);
 	}
 	
 	MPI_Barrier(MPI_COMM_WORLD);
 	double result_global[nLinhas], wallTime_global, trecv_global, tcomp_global;
 	
-	MPI_Reduce(result, result_global, nLinhas, MPI_DOUBLE, MPI_SUM, MASTER, MPI_COMM_WORLD);
+	MPI_Reduce(result, result_global, nLinhas, MPI_DOUBLE, MPI_MAX, MASTER, MPI_COMM_WORLD);
 	MPI_Reduce(&wallTime, &wallTime_global, 1, MPI_DOUBLE, MPI_MAX, MASTER, MPI_COMM_WORLD);
 	MPI_Reduce(&trecv, &trecv_global, 1, MPI_DOUBLE, MPI_SUM, MASTER, MPI_COMM_WORLD);
 	MPI_Reduce(&tcomp, &tcomp_global, 1, MPI_DOUBLE, MPI_SUM, MASTER, MPI_COMM_WORLD);
