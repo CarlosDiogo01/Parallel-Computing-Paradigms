@@ -12,6 +12,7 @@ Ana Sousa - A69855
 *********************/
 
 
+/****** Generating COO Matrix *******/
 double** geraMatriz (int nLinhas, int nCols, int nnz) {
 	int i, j, x, y, aux, cont;
 	double **mat = (double **) calloc (nLinhas, sizeof(double*));
@@ -62,6 +63,7 @@ double** geraMatriz (int nLinhas, int nCols, int nnz) {
 	return coo;
 }
 
+/***** Generating the Vector *****/
 double* geraVetor (int nCols) {
 	int i;
 	double *vect;
@@ -88,9 +90,8 @@ int main(int argc, char *argv[]) {
 	double **coo, *vect, *result, *linha, res;
 	int MASTER = 0;
 
-	/*** OpenMP Addictions ***/
+	/*** OpenMP Addictions for Hybrid Solution ***/
 	int total_threads_per_process = atoi(argv[4]);		/** Receiving the Number of OpenMP Threads for each MPI Process */
-	double startTimeOMP, endTimeOMP, wallTimeOMP;		/** Measuring spent time in OMP Work **/
 
 
 
@@ -117,6 +118,8 @@ int main(int argc, char *argv[]) {
 	result = (double*) calloc (nLinhas, sizeof(double));
 	vect = (double*) calloc (nLinhasVect, sizeof(double));
 
+
+	/***** Filling the COO Matrix and Vector ******/
 	if (idProc == MASTER){
 		/* Preenchimento Matriz e Vetor */
 		unsigned int nnz = (nLinhas * nCols) * 0.25;
@@ -124,34 +127,31 @@ int main(int argc, char *argv[]) {
 		vect = geraVetor(nLinhasVect);
 	}
 
-	/* Enviar o vetor gerado no MASTER aos outros processos */
+	/***** Sending generated Vector to other processes *****/
 	startAux = MPI_Wtime();
 	MPI_Bcast(vect, nLinhasVect, MPI_DOUBLE, MASTER, MPI_COMM_WORLD);
 	endAux = MPI_Wtime();
 	tbcast = endAux - startAux;
-	//forceLoadRam();
+//	forceLoadRam();
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if (idProc == MASTER){
-	//	forceLoadRam();
 		/** START MEASURING MPI AND OPENMP WORK **/
 		startTime = MPI_Wtime(); //walltime MPI
 		startAux = MPI_Wtime(); //tsend MPI
 		procDest = 1;
-		int valor;
+		int val_n;		//used to "bypass" n value. OpenMP does not accept variable n in for loop condition
 		for (i=0; ( (i<nLinhas) && (procDest < totalProcs) ) ; i+= incr){
 			n = i+incr;
-			valor = n;
-			#pragma omp parallel num_threads(total_threads_per_process)
-			{
-			#pragma omp for 
-			for (j=i; j<valor; j++) {
-				printf("entrei no ciclo idProc: %d\n", idProc);
+			val_n = n;
+			//#pragma omp parallel num_threads(total_threads_per_process)
+			//{
+			//#pragma omp for nowait
+			for (j=i; j<val_n; j++) {
 				tag = j;
 				MPI_Send(coo[j], (int)(coo[j][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
-				printf("fiz send idProc: %d\n",idProc);
 			}
-			}
+			//}
 			procDest++;
 		}	
 		endAux = MPI_Wtime(); 
@@ -159,9 +159,8 @@ int main(int argc, char *argv[]) {
 		
 		//Computacao das linhas que sobraram
 		startAux = MPI_Wtime(); //tcomp
-		startTimeOMP = omp_get_wtime();
 		int line_left_i;		//used to "bypass" i. OpenMP needs a initialization variable in for loop
-		int val;			//used to "bypass" n value. OpenMP dont's accept variable n in for loop condition
+		int val;			//used to "bypass" n value. OpenMP does not accept variable n in for loop condition
 		for(line_left_i=i; line_left_i<nLinhas; line_left_i++){	
 			res = 0.0;
 			n = (int)coo[line_left_i][0];
@@ -178,21 +177,15 @@ int main(int argc, char *argv[]) {
 		endAux = MPI_Wtime(); 
 		tcomp = endAux - startAux;
 		
-		/**Walltime OpenMP **/
-		endTimeOMP = omp_get_wtime();
-		wallTimeOMP = endTimeOMP - startTimeOMP;	
-		printf("WallTime OpenMP - Linhas que sobraram: %.12f idProc: %d\n",wallTimeOMP*100, idProc);
 		/** Walltime MPI **/
 		endTime = MPI_Wtime();
 		wallTime = endTime - startTime;
-		printf("Wall time MPI - Linhas que sobraram: %.12f\n, idProc: %d\n", wallTime*100, idProc);
 	}
 
 	//Caso nao seja o MASTER
 	else{
-		/** Start measuring OpenMP and MPI times **/
+		/** Start measuring MPI times **/
 		startTime = MPI_Wtime();
-		startTimeOMP = omp_get_wtime();
 		for(i=0; i<incr; i++){
 			startAux = MPI_Wtime();
 			MPI_Recv(linha, maxElem, MPI_DOUBLE, MASTER, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -215,14 +208,9 @@ int main(int argc, char *argv[]) {
 			tcomp += (endAux - startAux);
 			}
 		}
-		/** Walltime OpenMP **/
-		endTimeOMP = omp_get_wtime();
-		wallTimeOMP = endTimeOMP - startTimeOMP;
-		printf("WallTime OpenMP - Calculo: %.12f idProc: %d\n",wallTimeOMP*100, idProc);
 		/** Walltime MPI **/
 		endTime = MPI_Wtime();
 		wallTime = endTime - startTime;
-		printf("WallTime MPI - Calculo: %.12f idProc: %d\n",wallTime*100, idProc);
 	}
 	
 	MPI_Barrier(MPI_COMM_WORLD);
@@ -235,7 +223,7 @@ int main(int argc, char *argv[]) {
 	MPI_Barrier(MPI_COMM_WORLD);
 
 	if(idProc == MASTER) {
-		/* Visualizacao dos resultados */
+		/* Visualizacao dos resultados
 		printf("---------Matriz formato COO---------\n");
 		for(i=0; i<nLinhas; i++){
 			if (coo[i]) {
@@ -257,8 +245,8 @@ int main(int argc, char *argv[]) {
 			printf("---%f ", result_global[i]);
 		printf("\n\n");
 		
-		
-		printf("%.12f, %.100f, %.100f, %.12f, %.12f\n", tbcast*1000, tsend*1000, trecv_global*1000, tcomp_global*1000, wallTime_global*1000);
+		**/
+		printf("%.12f, %.12f, %.12f, %.12f, %.12f\n", tbcast*1000, tsend*1000, trecv_global*1000, tcomp_global*1000, wallTime_global*1000);
 
 		/* Libertar a memoria alocada */
 		 for(i=0; i<nLinhas; i++) {
