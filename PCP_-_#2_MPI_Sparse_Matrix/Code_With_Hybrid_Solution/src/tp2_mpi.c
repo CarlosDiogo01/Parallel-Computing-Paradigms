@@ -138,11 +138,19 @@ int main(int argc, char *argv[]) {
 		startTime = MPI_Wtime(); //walltime MPI
 		startAux = MPI_Wtime(); //tsend MPI
 		procDest = 1;
+		int valor;
 		for (i=0; ( (i<nLinhas) && (procDest < totalProcs) ) ; i+= incr){
 			n = i+incr;
-			for (j=i; j<n; j++) {
+			valor = n;
+			#pragma omp parallel num_threads(total_threads_per_process)
+			{
+			#pragma omp for 
+			for (j=i; j<valor; j++) {
+				printf("entrei no ciclo idProc: %d\n", idProc);
 				tag = j;
 				MPI_Send(coo[j], (int)(coo[j][0] + 1), MPI_DOUBLE, procDest, tag, MPI_COMM_WORLD);
+				printf("fiz send idProc: %d\n",idProc);
+			}
 			}
 			procDest++;
 		}	
@@ -250,17 +258,19 @@ int main(int argc, char *argv[]) {
 		printf("\n\n");
 		
 		
-		printf("%.12f, %.12f, %.12f, %.12f, %.12f\n", tbcast*1000, tsend*1000, trecv_global*1000, tcomp_global*1000, wallTime_global*1000);
+		printf("%.12f, %.100f, %.100f, %.12f, %.12f\n", tbcast*1000, tsend*1000, trecv_global*1000, tcomp_global*1000, wallTime_global*1000);
 
 		/* Libertar a memoria alocada */
 		 for(i=0; i<nLinhas; i++) {
 			free(coo[i]);
 		}
 		free(coo);
-		free(vect);
-		free(linha);
-		free(result);
 	}
+
+	free(vect);
+	free(linha);
+	free(result);
+
 	MPI_Barrier(MPI_COMM_WORLD);
 	MPI_Finalize();
 
