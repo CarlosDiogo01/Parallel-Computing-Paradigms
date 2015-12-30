@@ -2,7 +2,7 @@
 
 
 #PBS -N tp2_mpi
-#PBS -l walltime=00:35:00
+#PBS -l walltime=02:00:00
 #PBS -q mei
 
 #PBS -m abe
@@ -12,7 +12,7 @@
 
 #PBS -l nodes=2:r641:ppn=32
 
-cd ~/PCP/TP2_SpMV_MPI/PCP_-_#2_MPI_Sparse_Matrix/Code_With_Hybrid_Solution
+cd ~/PCP/Code_With_Hybrid_Solution/
 module purge
 module load gnu/4.9.0
 module load gnu/4.9.3
@@ -27,18 +27,22 @@ echo "Eth Network"
 max_ppn=64
 sample_size=5
 max_matrix=4096
+max_omp_threads=32
 
-for (( matrix_size=1024, vec_size=1024, num_threads=2; ((matrix_size <= $max_matrix) && (num_threads <= $max_ppn)); matrix_size+=matrix_size, vec_size+=vec_size ))
+for (( matrix_size=1024, vec_size=1024; matrix_size <= $max_matrix; matrix_size+=matrix_size, vec_size+=vec_size ))
 	do
 		echo "Running for COO Matrix Size: $matrix_size x $matrix_size"
 		echo "Running for Vector Size : $vec_size"
-		echo "Running $sample_size * $num_threads OpenMP Threads"
 		for (( ppn=2; ppn <= max_ppn; ppn+=2 )) 
 		do
-			echo "Running $sample_size * ppn: $ppn nodes"
-			for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
+			echo "Running $sample_size * ppn: $ppn processes"
+			for (( omp_threads=2; omp_threads <= max_omp_threads; omp_threads+=2 ))
 			do
-				mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/tp2_mpi $matrix_size $matrix_size $vec_size $num_threads"--map-by core" "eth" 2
+				echo "Running each process with: $omp_threads threads OpenMP"
+				for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
+				do
+					mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/tp2_mpi $matrix_size $matrix_size $vec_size $omp_threads "--map-by core" "eth" 2
+				done
 			done
 		done
 	done
