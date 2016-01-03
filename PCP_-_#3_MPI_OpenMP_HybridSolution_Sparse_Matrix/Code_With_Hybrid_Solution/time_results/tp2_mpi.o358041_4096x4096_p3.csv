@@ -1,0 +1,2215 @@
+Allocated computing node: compute-641-6
+Eth Network
+Running for COO Matrix Size: 4096 x 4096
+Running for Vector Size : 4096
+Running 3 * ppn: 52 processes
+Running each process with: 2 threads OpenMP
+0.442981719971, 498.810052871704, 12013.551950454712, 530.332088470459, 498.955965042114
+0.401020050049, 1324.297189712524, 40619.385242462158, 2071.346044540405, 1378.626108169556
+0.406026840210, 552.583932876587, 15440.945625305176, 686.461925506592, 552.711009979248
+Running each process with: 4 threads OpenMP
+0.427007675171, 17180.963039398193, 635492.778778076172, 49287.599325180054, 17199.904918670654
+0.373840332031, 8414.901971817017, 291697.467803955078, 24634.464979171753, 8484.061956405640
+0.406980514526, 7864.129066467285, 231369.168043136597, 21705.188989639282, 7958.389997482300
+Running each process with: 6 threads OpenMP
+0.401973724365, 27560.918092727661, 1026779.250621795654, 119523.955821990967, 27749.035120010376
+0.386953353882, 24559.353828430176, 860833.171129226685, 100871.095180511475, 24702.883958816528
+0.375986099243, 28908.344984054565, 956606.562614440918, 119812.153339385986, 29068.216085433960
+Running each process with: 8 threads OpenMP
+0.391006469727, 47883.660078048706, 1598935.763835906982, 277817.990779876709, 48042.587041854858
+0.370025634766, 45977.823019027710, 1554989.999055862427, 266672.201871871948, 46127.273082733154
+0.352859497070, 33200.182199478149, 967813.861370086670, 183119.923353195190, 33359.580039978027
+Running each process with: 10 threads OpenMP
+0.379800796509, 51283.649921417236, 1542547.240018844604, 386493.314027786255, 51553.661823272705
+0.388145446777, 63790.594100952148, 1964967.484712600708, 482906.385183334351, 64079.912900924683
+0.350952148438, 55001.749992370605, 1676053.877115249634, 440918.519496917725, 55242.753028869629
+Running each process with: 12 threads OpenMP
+0.426054000854, 60480.448007583618, 1795940.137863159180, 630714.819192886353, 60852.185964584351
+0.345945358276, 69854.420185089111, 2068232.256650924683, 702668.686151504517, 70284.080982208252
+0.411987304688, 72172.389984130859, 2168609.301090240479, 707754.975318908691, 72565.248966217041
+Running each process with: 14 threads OpenMP
+0.436067581177, 74557.227134704590, 2173650.539636611938, 923533.579826354980, 75066.864967346191
+0.383853912354, 68765.324115753174, 1987763.015985488892, 852285.297870635986, 69725.119829177856
+0.437021255493, 79349.594116210938, 2313426.143646240234, 939885.218858718872, 80195.421934127808
+Running each process with: 16 threads OpenMP
+0.355005264282, 89515.148878097534, 2563665.634632110596, 1236486.686468124390, 90579.751014709473
+0.447988510132, 90768.537998199463, 2617295.192241668701, 1256771.462440490723, 91670.594930648804
+0.351905822754, 88312.796115875244, 2517397.685766220093, 1204756.801366806030, 88559.824943542480
+Running each process with: 18 threads OpenMP
+0.407934188843, 98860.095024108887, 2758713.892459869385, 1525378.551483154297, 99624.526977539062
+0.395059585571, 99788.558959960938, 2805933.767557144165, 1495708.784103393555, 100155.709981918335
+0.380039215088, 94704.630136489868, 2648269.701242446899, 1464522.699117660522, 95489.991188049316
+Running each process with: 20 threads OpenMP
+0.422000885010, 103854.147195816040, 2875502.398252487183, 1786571.870803833008, 104318.691015243530
+0.411987304688, 102019.737005233765, 2859674.332857131958, 1784684.277772903442, 102859.834194183350
+0.377178192139, 106542.855978012085, 2943703.489065170288, 1842651.406764984131, 107451.376199722290
+Running each process with: 22 threads OpenMP
+0.408887863159, 114601.855993270874, 3173095.216751098633, 2164917.566061019897, 115232.880830764771
+0.386953353882, 113922.487974166870, 3176920.069694519043, 2172324.151277542114, 114684.503078460693
+0.404119491577, 112350.573062896729, 3105406.898975372314, 2154156.806945800781, 113299.297094345093
+Running each process with: 24 threads OpenMP
+0.467061996460, 121022.815942764282, 3384609.937429428101, 2513901.158094406128, 121839.585065841675
+0.379085540771, 119214.207172393799, 3315904.562473297119, 2486844.816923141479, 120202.407121658325
+0.403165817261, 122120.395183563232, 3435526.307106018066, 2509349.905490875244, 122939.026117324829
+Running each process with: 26 threads OpenMP
+0.468969345093, 126457.730054855347, 3477398.707628250122, 2869158.946990966797, 127175.453901290894
+0.408172607422, 124544.900894165039, 3433416.457653045654, 2783643.247365951538, 125269.853115081787
+0.329971313477, 123939.716100692749, 3402978.704452514648, 2801669.162511825562, 124984.464168548584
+Running each process with: 28 threads OpenMP
+0.398874282837, 132448.453903198242, 3669283.115386962891, 3277380.882740020752, 133845.733880996704
+0.451087951660, 129450.130939483643, 3566852.927923202515, 3199591.364383697510, 130358.052968978882
+0.391006469727, 131722.543001174927, 3612146.549463272095, 3205082.790613174438, 132716.096162796021
+Running each process with: 30 threads OpenMP
+0.424861907959, 139202.718973159790, 3865730.157852172852, 3631370.383024215698, 140436.818122863770
+0.400066375732, 134384.700059890747, 3775386.436700820923, 3587483.160495758057, 135349.795818328857
+0.486850738525, 137478.682994842529, 3746348.427295684814, 3612027.446746826172, 138435.253143310547
+Running each process with: 32 threads OpenMP
+0.406026840210, 139768.599987030029, 3854849.062681198120, 4061338.152408599854, 141136.257886886597
+0.406026840210, 145014.455795288086, 3926935.082912445068, 4005571.072816848755, 145833.663940429688
+0.399112701416, 141364.236116409302, 3841998.374938964844, 4064106.681346893311, 142247.204065322876
+Running 3 * ppn: 54 processes
+Running each process with: 2 threads OpenMP
+0.397920608521, 1384.700059890747, 51139.421939849854, 2044.936895370483, 1386.273860931396
+0.401020050049, 554.736852645874, 14281.721115112305, 577.125310897827, 554.857969284058
+0.427007675171, 731.449127197266, 17004.173278808594, 832.597017288208, 741.756200790405
+Running each process with: 4 threads OpenMP
+0.363111495972, 7605.077981948853, 253144.462347030640, 20286.361455917358, 7614.912986755371
+0.422954559326, 7504.796028137207, 264136.978864669800, 19540.222883224487, 7568.120956420898
+0.416994094849, 6071.802854537964, 218813.133001327515, 15062.814235687256, 6071.971893310547
+Running each process with: 6 threads OpenMP
+0.361204147339, 22521.663904190063, 727585.607767105103, 98187.477827072144, 22651.764869689941
+0.348806381226, 26920.406818389893, 960469.523668289185, 113556.273937225342, 26942.544221878052
+0.403881072998, 31557.267189025879, 1099365.104675292969, 142200.397014617920, 31700.018167495728
+Running each process with: 8 threads OpenMP
+0.473022460938, 40365.184068679810, 1356660.760879516602, 242748.556137084961, 40510.717153549194
+0.356912612915, 41403.816938400269, 1437071.846008300781, 248735.257625579834, 41634.737014770508
+0.360012054443, 43251.467227935791, 1440667.920112609863, 253001.422166824341, 43434.830188751221
+Running each process with: 10 threads OpenMP
+0.348091125488, 57709.156036376953, 1717063.286542892456, 480933.662652969360, 58344.347953796387
+0.396013259888, 50619.642972946167, 1603238.470077514648, 416721.044778823853, 50805.160045623779
+0.342845916748, 59247.778892517090, 1865379.817485809326, 520459.653377532959, 59533.717870712280
+Running each process with: 12 threads OpenMP
+0.454902648926, 69116.720914840698, 2062503.184795379639, 728090.287446975708, 69666.909933090210
+0.345945358276, 68768.137216567993, 2045607.680320739746, 740827.929258346558, 69401.051998138428
+0.385999679565, 65695.716142654419, 1977772.506475448608, 686429.554224014282, 66260.872125625610
+Running each process with: 14 threads OpenMP
+0.409841537476, 83014.326095581055, 2478440.040588378906, 1035974.057435989380, 83762.912988662720
+0.440120697021, 78765.052080154419, 2275276.780366897583, 989508.159875869751, 79309.298038482666
+0.355005264282, 84149.625062942505, 2557652.913570404053, 1008156.787633895874, 84637.868881225586
+Running each process with: 16 threads OpenMP
+0.382900238037, 90093.888998031616, 2649574.434518814087, 1259322.661638259888, 90896.647930145264
+0.412225723267, 89049.265146255493, 2604392.767190933228, 1275013.100862503052, 89957.978963851929
+0.395059585571, 90823.508977890015, 2675698.858976364136, 1289791.240453720093, 91370.723009109497
+Running each process with: 18 threads OpenMP
+0.401973724365, 99194.871902465820, 2847256.460666656494, 1569365.001678466797, 100019.030094146729
+0.443935394287, 99793.617010116577, 2871225.192546844482, 1585294.968605041504, 100806.226968765259
+0.395059585571, 97259.006023406982, 2829045.638799667358, 1573463.320255279541, 97961.045980453491
+Running each process with: 20 threads OpenMP
+0.446796417236, 105859.937906265259, 3092519.363880157471, 1888159.785270690918, 106623.422145843506
+0.331163406372, 106650.991916656494, 3095993.662834167480, 1928987.279415130615, 107205.672979354858
+0.376939773560, 108326.486110687256, 3158880.435228347778, 1923959.388017654419, 109004.503965377808
+Running each process with: 22 threads OpenMP
+0.403881072998, 113847.552061080933, 3281400.600910186768, 2217344.177007675171, 114586.491107940674
+0.390052795410, 115105.675935745239, 3337489.127635955811, 2276999.247074127197, 115977.041959762573
+0.412940979004, 114622.926950454712, 3298580.874204635620, 2232900.469779968262, 115569.224119186401
+Running each process with: 24 threads OpenMP
+0.406026840210, 123120.146989822388, 3543181.517362594604, 2650361.020803451538, 123784.928083419800
+0.398159027100, 119051.165103912354, 3399893.589258193970, 2523840.923309326172, 120026.381015777588
+0.415802001953, 121786.278963088989, 3545453.249931335449, 2620762.944459915161, 122744.074106216431
+Running each process with: 26 threads OpenMP
+0.344038009644, 124451.938152313232, 3551463.202476501465, 2956296.237945556641, 125477.537870407104
+0.386953353882, 123804.380178451538, 3548494.222879409790, 2886966.817855834961, 124663.679122924805
+0.376939773560, 126737.388849258423, 3624761.140584945679, 2996884.500980377197, 127916.353940963745
+Running each process with: 28 threads OpenMP
+0.417947769165, 131016.721010208130, 3738225.315093994141, 3342345.292568206787, 132444.205045700073
+0.421047210693, 129079.968929290771, 3682488.751888275146, 3374820.950031280518, 130091.875076293945
+0.420808792114, 132000.771999359131, 3817798.705101013184, 3326370.466232299805, 133085.268020629883
+Running each process with: 30 threads OpenMP
+0.391006469727, 134053.562879562378, 3806572.295904159546, 3674241.286993026733, 135358.597040176392
+0.355005264282, 135260.378122329712, 3841602.692842483521, 3737610.182046890259, 136312.614917755127
+0.410079956055, 136535.309076309204, 3892543.969154357910, 3715708.974838256836, 137723.285913467407
+Running each process with: 32 threads OpenMP
+0.458002090454, 140240.591049194336, 4043121.961116790771, 4157426.983356475830, 141483.222961425781
+0.378847122192, 137405.317068099976, 3901940.162181854248, 4120792.739391326904, 138798.620939254761
+0.353097915649, 143732.187986373901, 4106161.173820495605, 4241335.449934005737, 145000.454187393188
+Running 3 * ppn: 56 processes
+Running each process with: 2 threads OpenMP
+0.360965728760, 647.500038146973, 18594.111204147339, 759.988307952881, 647.693872451782
+0.344038009644, 1832.988977432251, 53225.462675094604, 2269.829988479614, 1834.508895874023
+0.349998474121, 703.287124633789, 16644.014358520508, 480.519533157349, 703.480005264282
+Running each process with: 4 threads OpenMP
+0.417947769165, 9653.388023376465, 379407.756567001343, 26125.459432601929, 9818.273067474365
+0.367164611816, 6285.290956497192, 234642.136096954346, 14334.486484527588, 6286.522865295410
+0.392913818359, 8013.551950454712, 329269.765615463257, 20700.427055358887, 8099.547147750854
+Running each process with: 6 threads OpenMP
+0.375986099243, 33472.686052322388, 1149285.470962524414, 151407.061815261841, 33614.927053451538
+0.365018844604, 24837.330102920532, 773668.359041213989, 110775.299549102783, 25064.592123031616
+0.343084335327, 24377.214193344116, 817860.511064529419, 113314.855575561523, 24628.048896789551
+Running each process with: 8 threads OpenMP
+0.396966934204, 41804.765939712524, 1350253.285646438599, 253018.646001815796, 42030.782938003540
+0.400066375732, 47428.939819335938, 1555236.575603485107, 314123.795509338379, 47686.674833297729
+0.400066375732, 46532.430887222290, 1508959.741115570068, 306868.674039840698, 46931.540012359619
+Running each process with: 10 threads OpenMP
+0.334024429321, 64037.476062774658, 2006377.635478973389, 582936.383247375488, 64632.850170135498
+0.360012054443, 56477.586030960083, 1715459.666252136230, 490325.589179992676, 57036.437034606934
+0.407934188843, 59974.379062652588, 1849235.067129135132, 536134.847640991211, 60522.868156433105
+Running each process with: 12 threads OpenMP
+0.384807586670, 72760.924100875854, 2245547.483205795288, 796171.666860580444, 73386.386871337891
+0.442981719971, 73777.484893798828, 2314202.354192733765, 790262.217998504639, 74464.308977127075
+0.437021255493, 72395.509004592896, 2241264.529943466187, 767840.242147445679, 73084.978818893433
+Running each process with: 14 threads OpenMP
+0.406026840210, 83632.297039031982, 2560548.487663269043, 1055793.191432952881, 84341.689109802246
+0.458002090454, 77450.984954833984, 2361532.352209091187, 998696.304559707642, 78224.872112274170
+0.386953353882, 80807.054996490479, 2405281.497001647949, 1035211.388826370239, 81656.848907470703
+Running each process with: 16 threads OpenMP
+0.412940979004, 91478.176832199097, 2729427.406787872314, 1332316.887378692627, 92286.700010299683
+0.399112701416, 92046.062946319580, 2769735.504627227783, 1342144.462585449219, 92922.034978866577
+0.385999679565, 91627.913951873779, 2732518.531084060669, 1331673.590421676636, 92652.657032012939
+Running each process with: 18 threads OpenMP
+0.404119491577, 102787.769079208374, 3091230.191469192505, 1649321.822404861450, 103638.921976089478
+0.429153442383, 101247.726917266846, 3037266.256809234619, 1664177.149534225464, 102423.141956329346
+0.380992889404, 99251.543998718262, 2977132.511615753174, 1614730.703830718994, 100247.901916503906
+Running each process with: 20 threads OpenMP
+0.415086746216, 108050.128936767578, 3256345.666170120239, 1979012.365341186523, 109325.325965881348
+0.350952148438, 109740.010023117065, 3265991.855859756470, 1985220.097541809082, 110552.984952926636
+0.379085540771, 105832.798957824707, 3169955.609798431396, 1950717.520713806152, 106648.827075958252
+Running each process with: 22 threads OpenMP
+0.374078750610, 113338.983058929443, 3379591.426849365234, 2291975.101709365845, 114468.034982681274
+0.371932983398, 115497.727870941162, 3450724.554777145386, 2298645.515680313110, 116667.037010192871
+0.438928604126, 112199.714183807373, 3340459.148406982422, 2272984.030246734619, 113197.427034378052
+Running each process with: 24 threads OpenMP
+0.440835952759, 120038.162946701050, 3584795.242547988892, 2693276.232242584229, 120868.341922760010
+0.376224517822, 119649.002790451050, 3577109.573841094971, 2579694.032430648804, 120344.664812088013
+0.399827957153, 117702.599048614502, 3525250.385046005249, 2611910.507678985596, 118501.720905303955
+Running each process with: 26 threads OpenMP
+0.382900238037, 126419.288873672485, 3739307.499885559082, 3057264.588117599487, 127928.694963455200
+0.411987304688, 126646.728992462158, 3782468.267917633057, 3028389.152765274048, 127882.925033569336
+0.350952148438, 126333.482027053833, 3737461.154460906982, 3074313.206434249878, 128152.729034423828
+Running each process with: 28 threads OpenMP
+0.381946563721, 130258.123874664307, 3814963.292360305786, 3385867.846488952637, 131380.919933319092
+0.420093536377, 128726.840972900391, 3781388.361930847168, 3333210.741281509399, 129975.915908813477
+0.728130340576, 130829.754114151001, 3894890.111207962036, 3430928.630113601685, 132047.829866409302
+Running each process with: 30 threads OpenMP
+0.367879867554, 140475.945949554443, 4176865.836858749390, 3871728.511810302734, 141631.377935409546
+0.297069549561, 135825.941085815430, 3975589.920520782471, 3824330.224514007568, 137220.621109008789
+0.407934188843, 135794.817924499512, 4015084.799766540527, 3798445.048570632935, 137192.574024200439
+Running each process with: 32 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+56 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+56 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+56 total processes failed to start
+Running 3 * ppn: 58 processes
+Running each process with: 2 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 4 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 6 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 8 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 10 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 12 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 14 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 16 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 18 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 20 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 22 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 24 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 26 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 28 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 30 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running each process with: 32 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+58 total processes failed to start
+Running 3 * ppn: 60 processes
+Running each process with: 2 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 4 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 6 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 8 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 10 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 12 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 14 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 16 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 18 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 20 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 22 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 24 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 26 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 28 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 30 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running each process with: 32 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+60 total processes failed to start
+Running 3 * ppn: 62 processes
+Running each process with: 2 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 4 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 6 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 8 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 10 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 12 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 14 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 16 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 18 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 20 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 22 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 24 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 26 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 28 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 30 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running each process with: 32 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+62 total processes failed to start
+Running 3 * ppn: 64 processes
+Running each process with: 2 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 4 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 6 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 8 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 10 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 12 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 14 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 16 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 18 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 20 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 22 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 24 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 26 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 28 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 30 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Running each process with: 32 threads OpenMP
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+--------------------------------------------------------------------------
+mpirun was unable to launch the specified application as it could not access
+or execute an executable:
+
+Executable: bin/tp2_mpi
+Node: compute-641-6
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+64 total processes failed to start
+Done...
