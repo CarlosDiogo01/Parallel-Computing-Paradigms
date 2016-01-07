@@ -9,9 +9,9 @@ SHELL = /bin/sh
 MPICXX = mpicc
 LD  = mpicc
 
-MPI = tp2_mpi
+MPI = tp2_hybrid
 BIN = bin
-BIN_MPI = tp2_mpi
+BIN_MPI = tp2_hybrid
 
 CXXFLAGS = -O3 -Wall -Wextra -std=c11 -fopenmp
 #LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm

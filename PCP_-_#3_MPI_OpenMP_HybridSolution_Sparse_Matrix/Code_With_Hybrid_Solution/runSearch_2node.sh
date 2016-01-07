@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-#PBS -N tp2_mpi
+#PBS -N tp2_hybrid
 #PBS -l walltime=02:00:00
 #PBS -q mei
 
@@ -41,7 +41,7 @@ for (( matrix_size=1024, vec_size=1024; matrix_size <= $max_matrix; matrix_size+
 				echo "Running each process with: $omp_threads threads OpenMP"
 				for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 				do
-					mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/tp2_mpi $matrix_size $matrix_size $vec_size $omp_threads "--map-by core" "eth" 2
+					mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/tp2_hybrid $matrix_size $matrix_size $vec_size $omp_threads "--map-by core" "eth" 2
 				done
 			done
 		done

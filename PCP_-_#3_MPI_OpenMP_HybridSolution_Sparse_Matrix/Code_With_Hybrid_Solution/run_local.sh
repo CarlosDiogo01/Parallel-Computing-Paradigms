@@ -1,7 +1,7 @@
 #/bin/bash
 COMPILER=mpicc
 PROCESSES_NUMBER=2
-MPI_FILE=tp2_mpi
+MPI_FILE=tp2_hybrid
 
 echo "Start compiling ...."
 make all
